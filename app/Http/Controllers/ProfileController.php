@@ -74,6 +74,9 @@ class ProfileController extends Controller
         $profile->delete();
         return to_route('profiles.index')->with('success', 'the profile has been deleted successfully');
     }
-
+    public function edit(Profile $profile){
+        return view( 'profile.edit', compact('profile') );
+    }
+    
 }
 

@@ -12,6 +12,11 @@
                 @csrf
                 <button class="btn btn-danger btn-sm float-end">DELETE !</button>
             </form>
+            <form action="{{ route('profiles.edit',$profile->id) }}" method="GET">
+
+                @csrf
+                <button class="btn btn-primary btn-sm float-end mx-2">UPDATE !</button>
+            </form>
         </div>
     </div>
 </div>
