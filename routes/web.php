@@ -22,6 +22,8 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout');
 
+Route::delete('/profiles/{profile}', [ProfileController::class, 'destroy'])->name('profiles.destroy');
+
 Route::get('/settings', [Information::class, 'index'])->name('settings.index');
 
 

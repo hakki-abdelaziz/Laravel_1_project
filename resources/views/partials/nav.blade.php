@@ -11,12 +11,13 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{route('homepage')}}">Home</a>
             </li>
+
+            @guest
             <li class="nav-item">
                 <a class="nav-link" href="{{route('login.show')}}">Log In</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('login.logout')}}">Log Out</a>
-            </li>
+            @endguest
+
             <li class="nav-item">
                 <a class="nav-link" href="{{route('profiles.index')}}">Profiles</a>
             </li>
@@ -27,16 +28,20 @@
                 <a class="nav-link" href="{{route('settings.index')}}">Settings</a>
             </li>
         </ul>
+
+        @auth
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Username
+            {{ auth()->user()->name }}
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+
+                <a class="dropdown-item" href="{{route('login.logout')}}">Log Out</a>
             </div>
-          </div>
+        </div>
+        @endauth
+
     </div>
 </nav>
 

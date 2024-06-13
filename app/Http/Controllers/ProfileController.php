@@ -70,6 +70,10 @@ class ProfileController extends Controller
         return redirect()->route('profiles.index')->with('success','your account has been created successfully');
     }
 
+    public function destroy(Profile $profile){
+        $profile->delete();
+        return to_route('profiles.index')->with('success', 'the profile has been deleted successfully');
+    }
 
 }
 
