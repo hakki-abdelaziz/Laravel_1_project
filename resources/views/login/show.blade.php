@@ -2,7 +2,7 @@
 <x-master title='Log In'>
     <div class="container w-75 my-2 bg-light p-5">
 
-        <h3>Authentificatton</h3>
+        <h3>LOG IN</h3>
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <div class="mb-3">
@@ -18,8 +18,12 @@
             </div>
             <div class="d-grid">
                 <button class="btn btn-dark">LOG IN</button>
+
             </div>
         </form>
+            <div class="d-grid">
+                <button class="btn btn-outline-dark mt-3"><a class="nav-link" href="{{route('create')}}">SIGN UP</a></button>
+            </div>
     </div>
 
 
