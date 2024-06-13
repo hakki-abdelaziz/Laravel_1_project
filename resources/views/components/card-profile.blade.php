@@ -1,6 +1,6 @@
 <div class="col-sm-3">
     <div class="card my-3">
-        <img class="card-img-top" src="/images/user.png" alt="it's ME 😁" />
+        <img class="card-img-top" src="{{ asset('storage/'.$profile->image) }}" alt="it's ME 😁" />
         <div class="card-body">
             <h4 class="card-title">{{$profile->name}}</h4>
             <p class="card-text">{{Str::limit($profile->bio,50)}}</p>

@@ -64,7 +64,9 @@ class ProfileController extends Controller
         // Hash
         $formFields['password'] = Hash::make($request->password);
 
-        $formFields['image'] = $request->file('image')->store('profile','public');
+        //update file
+        $formFields['image'] = $this->uploadImage($request);
+        //$formFields['image'] = $request->file('image')->store('profile','public'); */
 
 
         Profile::create($formFields);
@@ -76,13 +78,30 @@ class ProfileController extends Controller
         $profile->delete();
         return to_route('profiles.index')->with('success', 'the profile has been deleted successfully');
     }
+
     public function edit(Profile $profile){
         return view( 'profile.edit', compact('profile') );
     }
+
     public function update(ProfileRequest $request, Profile $profile){
+
         $formFields = $request->validated();
+
+        //Hash / Encryption
+        $formFields['password'] = Hash::make($request->password);
+
+        //update file
+        $formFields['image'] = $this->uploadImage($request);
+
         $profile->fill($formFields)->save();
+
         return to_route('profiles.show',$profile)->with('success', 'the profile has been successfully modified');
+    }
+
+    private function uploadImage(ProfileRequest $request){
+        if($request->hasFile('image')){
+            return $request->file('image')->store('profile','public');
+        }
     }
 
 }
