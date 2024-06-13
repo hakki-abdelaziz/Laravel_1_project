@@ -62,7 +62,9 @@ class ProfileController extends Controller
         // ]);
 
         // Hash
-        $formFields['password']=Hash::make($request->password);
+        $formFields['password'] = Hash::make($request->password);
+
+        $formFields['image'] = $request->file('image')->store('profile','public');
 
 
         Profile::create($formFields);
