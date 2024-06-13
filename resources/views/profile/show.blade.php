@@ -6,7 +6,16 @@
     id is : {{$profile->id}} </br>
     email is : {{$profile->email}} </br>
     bio : {{$profile->bio}} </br>
+    <form action="{{ route('profiles.destroy',$profile->id) }}" method="post">
+        @method('DELETE')
+        @csrf
+        <button class="btn btn-danger btn-sm float-end">DELETE !</button>
+    </form>
+    <form action="{{ route('profiles.edit',$profile->id) }}" method="GET">
 
+        @csrf
+        <button class="btn btn-primary btn-sm float-end mx-2">UPDATE !</button>
+    </form>
 
 </x-master>
 

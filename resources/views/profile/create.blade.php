@@ -1,6 +1,6 @@
 
 <x-master title='Profiles create '>
-
+    <h1 class="mb-5"> Create Profile</h1>
     @if ($errors->any())
         <x-alert type="danger">
             <h6>ERRORS : </h6>

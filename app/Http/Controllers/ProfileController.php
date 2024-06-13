@@ -77,6 +77,11 @@ class ProfileController extends Controller
     public function edit(Profile $profile){
         return view( 'profile.edit', compact('profile') );
     }
-    
+    public function update(ProfileRequest $request, Profile $profile){
+        $formFields = $request->validated();
+        $profile->fill($formFields)->save();
+        return to_route('profiles.show',$profile)->with('success', 'the profile has been successfully modified');
+    }
+
 }
 
