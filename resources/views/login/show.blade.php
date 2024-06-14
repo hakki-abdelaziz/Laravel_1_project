@@ -22,7 +22,7 @@
             </div>
         </form>
             <div class="d-grid">
-                <button class="btn btn-outline-dark mt-3"><a class="nav-link" href="{{route('create')}}">SIGN UP</a></button>
+                <button class="btn btn-outline-dark mt-3"><a class="nav-link" href="{{route('profiles.create')}}">SIGN UP</a></button>
             </div>
     </div>
 

@@ -51,7 +51,7 @@ class ProfileController extends Controller
     }
     */
 
-    public function store(ProfileRequest $request){
+    public function store(ProfileRequest $request, Profile $profile){
 
         $formFields = $request->validated();
         // $formFields = $request->validate([
@@ -65,7 +65,7 @@ class ProfileController extends Controller
         $formFields['password'] = Hash::make($request->password);
 
         //update file
-        $formFields['image'] = $this->uploadImage($request);
+        $formFields['image'] = $this->uploadImage($request,$profile);
         //$formFields['image'] = $request->file('image')->store('profile','public'); */
 
 
@@ -91,16 +91,22 @@ class ProfileController extends Controller
         $formFields['password'] = Hash::make($request->password);
 
         //update file
-        $formFields['image'] = $this->uploadImage($request);
+        $formFields['image'] = $this->uploadImage($request, $profile);
 
         $profile->fill($formFields)->save();
 
         return to_route('profiles.show',$profile)->with('success', 'the profile has been successfully modified');
     }
 
-    private function uploadImage(ProfileRequest $request){
-        if($request->hasFile('image')){
-            return $request->file('image')->store('profile','public');
+    private function uploadImage(ProfileRequest $request, Profile $profile){
+        if ($request->hasFile('image')) {
+            return $request->file('image')->store('profile', 'public');
+        }
+        elseif($profile->image){
+            return $profile->image;
+        }
+        else{
+            return 'profile/user.png'; // Return existing image path if no new image is uploaded
         }
     }
 

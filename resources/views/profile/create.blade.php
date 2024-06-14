@@ -1,6 +1,6 @@
 
 <x-master title='Profiles create '>
-    <h1 class="mb-5"> Create Profile</h1>
+    <h1 class="mb-3 text-center"> Create Profile</h1>
     @if ($errors->any())
         <x-alert type="danger">
             <h6>ERRORS : </h6>
@@ -11,7 +11,7 @@
             </ul>
         </x-alert>
     @endif
-    <form method="POST" action="{{ route('store') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('profiles.store') }}" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="" class="form-label">Name</label>

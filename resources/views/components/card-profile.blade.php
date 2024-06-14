@@ -1,4 +1,4 @@
-<div class="col-sm-3">
+<div class="col-sm-4">
     <div class="card my-3">
         <img class="card-img-top" src="{{ asset('storage/'.$profile->image) }}" alt="it's ME 😁" />
         <div class="card-body">
