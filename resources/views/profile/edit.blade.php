@@ -23,14 +23,14 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Email</label>
-            <input type="email" name="email" class="form-control" value="{{old('name',$profile->email)}}"/>
+            <input type="email" name="email" class="form-control" value="{{old('email',$profile->email)}}"/>
             @error('email')
                 <div class="text-danger">{{$message}}</div>
             @enderror
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Password</label>
-            <input type="password" name="password" class="form-control" value="{{old('name',$profile->password)}}"/>
+            <input type="password" name="password" class="form-control" value="{{old('password')}}"/>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Confirm Password</label>
@@ -38,11 +38,11 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Bio</label>
-            <textarea class="form-control" name="bio">{{old('name',$profile->bio)}}</textarea>
+            <textarea class="form-control" name="bio">{{old('bio',$profile->bio)}}</textarea>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Image</label>
-            <input class="form-control" type="file" name="image">{{old('bio')}}</input>
+            <input class="form-control" type="file" name="image">{{old('image')}}</input>
         </div>
         <div class="d-grid">
             <button type="submit" class="btn btn-dark my-2 btn-block">UPDATE</button>
