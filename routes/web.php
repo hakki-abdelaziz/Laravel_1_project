@@ -7,13 +7,29 @@ use App\Http\Controllers\Information;
 use App\Http\Controllers\LoginController;
 
 
-Route::get('/profiles', [ProfileController::class, 'index'])->name('profiles.index');
-Route::get('/profiles/create', [ProfileController::class, 'create'])->name('profiles.create');
-Route::post('/profiles', [ProfileController::class, 'store'])->name('profiles.store');
-Route::delete('/profiles/{profile}', [ProfileController::class, 'destroy'])->name('profiles.destroy');
-Route::get('/profiles/{profile}/edit', [ProfileController::class, 'edit'])->name('profiles.edit');
-Route::put('/profiles/{profile}', [ProfileController::class, 'update'])->name('profiles.update');
-Route::get('/profiles/{profile}', [ProfileController::class, 'show'])->where('profile','\d+')->name('profiles.show');
+Route::name('profiles.')->prefix('profiles')->group(function(){
+    Route::controller(ProfileController::class)->group(function(){
+    Route::get('/', 'index')->name('index');
+    Route::get('/create', 'create')->name('create');
+    Route::post('/', 'store')->name('store');
+    Route::delete('/{profile}', 'destroy')->name('destroy');
+    Route::get('/{profile}/edit', 'edit')->name('edit');
+    Route::put('/{profile}', 'update')->name('update');
+    Route::get('/{profile}', 'show')->where('profile','\d+')->name('show');
+    });
+
+});
+
+
+
+    // Route::get('/profiles', [ProfileController::class, 'index'])->name('profiles.index');*/
+    // Route::get('/profiles/create', [ProfileController::class, 'create'])->name('profiles.create');
+    // Route::post('/profiles', [ProfileController::class, 'store'])->name('profiles.store');
+    // Route::delete('/profiles/{profile}', [ProfileController::class, 'destroy'])->name('profiles.destroy');
+    // Route::get('/profiles/{profile}/edit', [ProfileController::class, 'edit'])->name('profiles.edit');
+    // Route::put('/profiles/{profile}', [ProfileController::class, 'update'])->name('profiles.update');
+    // Route::get('/profiles/{profile}', [ProfileController::class, 'show'])->where('profile','\d+')->name('profiles.show');
+
 
 
 
