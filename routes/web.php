@@ -35,17 +35,17 @@ Route::resource('profiles',ProfileController::class);
 
 
 
-Route::get('/login', [LoginController::class, 'show'])->name('login.show');
+Route::get('/login', [LoginController::class, 'show'])->name('login.show')->middleware('guest');
 
-Route::post('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
 
-Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout');
-
-
+Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout')->middleware('auth');
 
 
 
-Route::get('/', [homeController::class, 'index'])->name('homepage');
+
+
+Route::get('/', [homeController::class, 'index'])->name('homepage')->middleware('auth');
 
 Route::get('/settings', [Information::class, 'index'])->name('settings.index');
 

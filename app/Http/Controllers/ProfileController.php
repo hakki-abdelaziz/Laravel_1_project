@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
+
     public function index(){
         // $profiles = Profile::all(); showing all data from the database table
         $profiles = Profile::paginate(12);
