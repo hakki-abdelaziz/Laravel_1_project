@@ -41,12 +41,19 @@ Route::post('/login', [LoginController::class, 'login'])->name('login')->middlew
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout')->middleware('auth');
 
-
-
-
-
 Route::get('/', [homeController::class, 'index'])->name('homepage')->middleware('auth');
 
 Route::get('/settings', [Information::class, 'index'])->name('settings.index');
 
 
+
+Route::get('/google', function () {
+    return redirect()->away('https://www.google.com');
+})->name('google');
+
+Route::get('/route', function () {
+    // dd(Route::current());
+    
+    dd(Route::currentRouteName());
+    // dd(Route::currentRouteAction());
+})->name('route');
