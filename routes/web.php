@@ -6,7 +6,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Information;
 use App\Http\Controllers\LoginController;
 
-
 //*/ Route::name('profiles.')->prefix('profiles')->group(function(){
 //     Route::controller(ProfileController::class)->group(function(){
 //         Route::get('/', 'index')->name('index');
@@ -45,15 +44,17 @@ Route::get('/', [homeController::class, 'index'])->name('homepage')->middleware(
 
 Route::get('/settings', [Information::class, 'index'])->name('settings.index');
 
-
+/*------------------------------------------------*/
 
 Route::get('/google', function () {
     return redirect()->away('https://www.google.com');
 })->name('google');
 
 Route::get('/route', function () {
-    // dd(Route::current());
-    
+    // dd(Route::current());*/
+
     dd(Route::currentRouteName());
-    // dd(Route::currentRouteAction());
+    // dd(Route::currentRouteAction());*/
 })->name('route');
+
+

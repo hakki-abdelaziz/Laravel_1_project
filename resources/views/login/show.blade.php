@@ -7,14 +7,14 @@
             @csrf
             <div class="mb-3">
                 <label for="" class="form-label">Email</label>
-                <input type="email" name="login" class="form-control" value="{{old('login')}}"/>
+                <input type="email" name="login" class="form-control" value="{{old('login')}}" required/>
                 @error('login')
                     {{$message}}
                 @enderror
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">password</label>
-                <input type="password" name="password" class="form-control" value="{{old('password')}}"/>
+                <input type="password" name="password" class="form-control" value="{{old('password')}}" required/>
             </div>
             <div class="d-grid">
                 <button class="btn btn-dark">LOG IN</button>
@@ -28,4 +28,5 @@
 
 
 </x-master>
+
 
