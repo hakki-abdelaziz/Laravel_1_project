@@ -20,6 +20,7 @@ class PublicationFactory extends Factory
             'title' => $this->faker->sentence,
             'body' => $this->faker->paragraph,
             'image' => null, // You can modify this to generate random image paths if needed
+            'profile_id' => \App\Models\Profile::factory()->create()->id,
         ];
     }
 }
