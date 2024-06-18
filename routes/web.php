@@ -5,6 +5,7 @@ use App\Http\Controllers\homeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Information;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PublicationController;
 
 //*/ Route::name('profiles.')->prefix('profiles')->group(function(){
 //     Route::controller(ProfileController::class)->group(function(){
@@ -19,6 +20,8 @@ use App\Http\Controllers\LoginController;
 // });
 
 Route::resource('profiles',ProfileController::class);
+Route::resource('publication',PublicationController::class);
+
 
     // Route::get('/profiles', [ProfileController::class, 'index'])->name('profiles.index');*/
     // Route::get('/profiles/create', [ProfileController::class, 'create'])->name('profiles.create');
@@ -56,5 +59,6 @@ Route::get('/route', function () {
     dd(Route::currentRouteName());
     // dd(Route::currentRouteAction());*/
 })->name('route');
+
 
 

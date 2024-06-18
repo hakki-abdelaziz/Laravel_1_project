@@ -12,7 +12,9 @@ class PublicationController extends Controller
      */
     public function index()
     {
-        //
+        $publications = Publication::paginate(12);
+
+        return view('publication.index', compact('publications'));
     }
 
     /**
@@ -20,7 +22,7 @@ class PublicationController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
