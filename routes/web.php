@@ -22,6 +22,13 @@ use App\Http\Controllers\PublicationController;
 Route::resource('profiles',ProfileController::class)->middleware('auth');
 Route::resource('publication',PublicationController::class)->middleware('auth');
 
+Route::middleware(['guest'])->group(function () {
+    Route::get('/profiles/create', [ProfileController::class, 'create'])->name('profiles.create');
+    Route::post('/profiles', [ProfileController::class, 'store'])->name('profiles.store');
+
+    // Other authenticated routes...
+});
+
 
     // Route::get('/profiles', [ProfileController::class, 'index'])->name('profiles.index');*/
     // Route::get('/profiles/create', [ProfileController::class, 'create'])->name('profiles.create');
@@ -43,7 +50,7 @@ Route::post('/login', [LoginController::class, 'login'])->name('login')->middlew
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout')->middleware('auth');
 
-Route::get('/', [homeController::class, 'index'])->name('homepage')->middleware('auth');
+Route::get('/', [homeController::class, 'index'])->name('homepage');
 
 Route::get('/settings', [Information::class, 'index'])->name('settings.index')->middleware('auth');
 
