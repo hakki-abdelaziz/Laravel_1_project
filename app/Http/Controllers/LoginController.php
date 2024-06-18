@@ -29,13 +29,13 @@ class LoginController extends Controller
         }
     }
 //------------ LOG OUT -----------------------
-public function logout(){
+    public function logout(){
 
-    Session::flush();
+        Session::flush();
 
-    Auth::logout();
+        Auth::logout();
 
-    return to_route('login')->with('success','You logged out successfully ');
+        return to_route('login')->with('success','You logged out successfully ');
 
-}
+    }
 }

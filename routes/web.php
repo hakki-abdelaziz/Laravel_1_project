@@ -19,8 +19,8 @@ use App\Http\Controllers\PublicationController;
 //     });
 // });
 
-Route::resource('profiles',ProfileController::class);
-Route::resource('publication',PublicationController::class);
+Route::resource('profiles',ProfileController::class)->middleware('auth');
+Route::resource('publication',PublicationController::class)->middleware('auth');
 
 
     // Route::get('/profiles', [ProfileController::class, 'index'])->name('profiles.index');*/
@@ -45,7 +45,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout')-
 
 Route::get('/', [homeController::class, 'index'])->name('homepage')->middleware('auth');
 
-Route::get('/settings', [Information::class, 'index'])->name('settings.index');
+Route::get('/settings', [Information::class, 'index'])->name('settings.index')->middleware('auth');
 
 /*------------------------------------------------*/
 

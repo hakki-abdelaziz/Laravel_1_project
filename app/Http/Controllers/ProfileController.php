@@ -21,6 +21,7 @@ class ProfileController extends Controller
     //  $id = (int)$request->id;
     //     $profile = Profile::findOrFail($id);
     // */
+
         return view('profile.show', compact('profile'));
     }
 

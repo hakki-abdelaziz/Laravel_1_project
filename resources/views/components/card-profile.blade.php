@@ -1,8 +1,8 @@
-<div class="col-sm-4">
-    <div class="card my-3">
-        <img class="card-img-top" src="{{ asset('storage/'.$profile->image) }}" alt="it's ME 😁" />
+<div class="col">
+    <div class="card my-3 pt-3" style="width: 18rem;">
+        <img class="card-img-top mx-auto" style="width: 12rem; border-radius:50%; background-color:#c0c1c2" src="{{ asset('storage/'.$profile->image) }}" alt="it's ME 😁" />
         <div class="card-body">
-            <h4 class="card-title">{{$profile->name}}</h4>
+            <h4 class="card-title">{{Str::Upper($profile->name)}}</h4>
             <p class="card-text">{{Str::limit($profile->bio,50)}}</p>
                 <a aria-hidden href="{{ route('profiles.show',$profile->id) }}" class="stretched-link"></a>
         </div>
