@@ -21,9 +21,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{route('profiles.index')}}">Profiles</a>
             </li>
-            {{-- <li class="nav-item">
-                <a class="nav-link" href="{{route('profiles.create')}}">Create</a>
-            </li> --}}
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('publication.index')}}">Publication</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{route('settings.index')}}">Settings</a>
             </li>

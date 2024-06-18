@@ -7,6 +7,6 @@
         @endforeach
     </div>
 
-
+    {{$publications->links()}}
 
 </x-master>
