@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="card my-d py-4">
-                <img class="card-img-top w-25 mx-auto" src="{{ asset('storage/'.$profile->image) }}" alt="it's ME 😁" />
+                <img class="card-img-top w-25 mx-auto" style="width: 4rem; border-radius:50%; background-color:#b7e4fc" src="{{ asset('storage/'.$profile->image) }}" alt="it's ME 😁" />
                 <div class="card-body text-center">
                     <h4 class="card-title">#{{$profile->id}} <b>{{ Str::upper($profile->name) }}</b></h4>
                     <p class="card-text">Email : {{$profile->email}}</p>
@@ -22,9 +22,17 @@
                     @csrf
                     <button class="btn btn-primary btn-sm float-end mx-2">UPDATE !</button>
                 </form>
+
             </div>
         </div>
     </div>
+    {{-- <div class="row my-5">
+        @foreach ($publication as $publication)
+            @if ($publication->profile->id === Auth::user()->profile->id)
+                <x-card-publication :publication="$publication"/>
+            @endif
+        @endforeach
+    </div> --}}
 
 </x-master>
 
