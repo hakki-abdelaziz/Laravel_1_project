@@ -18,11 +18,12 @@ class ProfileController extends Controller
     }
 
     public function show(Profile $profile){
-    //  $id = (int)$request->id;
-    //     $profile = Profile::findOrFail($id);
-    // */
+        $publications = $profile->publications()->orderBy('created_at', 'desc')->get();
 
-        return view('profile.show', compact('profile'));
+        // Return the view with the profile and its publications
+        return view('profile.show', compact('profile', 'publications'));
+
+
     }
 
     public function create(){

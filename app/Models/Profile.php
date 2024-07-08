@@ -18,4 +18,8 @@ class Profile extends Model
         'bio',
         'image',
     ];
+    public function publications()
+    {
+        return $this->hasMany(Publication::class);
+    }
 }

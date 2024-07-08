@@ -26,15 +26,40 @@
             </div>
         </div>
     </div>
-    {{-- <div class="row my-5">
-        @foreach ($publication as $publication)
-            @if ($publication->profile->id === Auth::user()->profile->id)
-                <x-card-publication :publication="$publication"/>
-            @endif
+    <div class="row">
+        @foreach ($publications as $publication)
+        <div class="container col-md-6">
+            <div class="card my-3 ">
+                <div class="card bg-light">
+                    <div class="card-header text-center">
+                        @if($publication->profile)
+                            <img
+                                class="float-start card-img-top mx-auto"
+                                style="width: 3rem; border-radius:50%; background-color:#b7e4fc"
+                                src="{{ asset('storage/'.$publication->profile->image) }}"
+                                alt="{{ $publication->profile->name }} pic">
+                            </img>
+                            <b>{{ Str::upper($publication->profile->name) }}</b>
+                                <a aria-hidden href="{{ route('profiles.show', $publication->profile->id) }}"></a>
+                        @endif
+                    </div>
+                    <div class="card-body" style="min-height: 10rem;">
+                        <h4 class="card-title">{{ $publication->title }}</h4>
+                        <p class="card-text">{{ $publication->body }}</p>
+                    </div>
+                    <div class="card-footer text-bg-dark">Published at: {{ $publication->created_at }}</div>
+                </div>
+            </div>
+        </div>
         @endforeach
-    </div> --}}
+    </div>
+
 
 </x-master>
+
+
+
+
 
 
 
