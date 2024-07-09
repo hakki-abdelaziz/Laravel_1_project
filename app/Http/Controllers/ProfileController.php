@@ -54,6 +54,15 @@ class ProfileController extends Controller
     }
     */
 
+
+    // public function research(Profile $profile)
+    // {
+    //     $profiles = Profile::all('*');
+
+    //     return view('profile.index', compact('profiles'));
+    // }
+
+
     public function store(ProfileRequest $request, Profile $profile){
 
         $formFields = $request->validated();
