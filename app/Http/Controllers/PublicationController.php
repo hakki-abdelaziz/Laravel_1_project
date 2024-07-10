@@ -57,7 +57,7 @@ class PublicationController extends Controller
      */
     public function show(Publication $publication)
     {
-        //
+        return view('publication.show', compact('publication'));
     }
 
     /**
