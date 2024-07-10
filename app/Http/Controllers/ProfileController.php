@@ -87,8 +87,14 @@ class ProfileController extends Controller
     }
 
     public function destroy(Profile $profile){
+
+        // Delete all publications associated with the profile
+        $profile->publications()->delete();
+
+        // Delete the profile
         $profile->delete();
-        return to_route('profiles.index')->with('success', 'the profile has been deleted successfully');
+
+        return to_route('profiles.index')->with('success', 'The profile and all its publications have been deleted successfully');
     }
 
     public function edit(Profile $profile){
