@@ -60,7 +60,7 @@ class ProfileController extends Controller
     //     $profiles = Profile::all('*');
 
     //     return view('profile.index', compact('profiles'));
-    // }
+    // }*/
 
 
     public function store(ProfileRequest $request, Profile $profile){

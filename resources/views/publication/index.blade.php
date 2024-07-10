@@ -29,7 +29,15 @@
                         <h4 class="card-title">{{ $publication->title }}</h4>
                         <p class="card-text">{{ $publication->body }}</p>
                     </div>
-                    <div class="card-footer text-bg-dark">Published at: {{ $publication->created_at }}</div>
+                    <div class="card-footer text-bg-dark" style="z-index: 9">
+
+                        <form action="{{ route('publication.destroy', $publication->id) }}" method="post">
+                            Published at: {{ $publication->created_at }}
+                            @method('DELETE')
+                            @csrf
+                            <button class="btn btn-danger btn-sm float-end" >DELETE !</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

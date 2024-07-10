@@ -81,6 +81,8 @@ class PublicationController extends Controller
      */
     public function destroy(Publication $publication)
     {
-        //
+        $publication->delete();
+        return back()->with('success', 'the profile has been deleted successfully');
+
     }
 }
