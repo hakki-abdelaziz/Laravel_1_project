@@ -55,12 +55,12 @@ class ProfileController extends Controller
     */
 
 
-    // public function research(Profile $profile)
-    // {
-    //     $profiles = Profile::all('*');
+    public function research(Profile $profile)
+    {
+        $profiles = Profile::all('*');
 
-    //     return view('profile.index', compact('profiles'));
-    // }*/
+        return view('profile.index', compact('profiles'));
+    }
 
 
     public function store(ProfileRequest $request, Profile $profile){
